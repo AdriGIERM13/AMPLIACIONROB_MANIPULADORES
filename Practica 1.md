@@ -13,7 +13,7 @@ Para la siguinte práctica se hacen uso de las siguientes funciones:
 * tr2q   : Calcula la matriz homoegenea T correspondiente al cuaternión q.
 
   
-## Funciones incompletas
+**Funciones incompletas**
 Para esta práctica además se aportan una serie de funciones que se encuentran incompletas y que se han de completar.
 * qpinter
 * generate_smooth_path
