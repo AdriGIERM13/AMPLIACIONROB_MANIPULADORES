@@ -39,4 +39,5 @@ La interpolación cartesiana se caracteriza por lograr una variación lineal de 
 Para el primer apartado se pide completar la función qpinter, esta debe ralizar la interpolación de cuaterniones basandose en el métdodo de Tayler que calcula el cuaternión intermedio entre el punto inicial y el final. El valor del parametro lambda debe de satisfacer  0≤la≤1. 
 
 Para obtener la interpolación,  primero se obtienen las posiciones de las matrices homogeneas, para realizar una interpolación lineal entre p1 y p2.
-                                  $pr = (1-t)⋅p1+t⋅p2 = p1 + t⋅(p2-p1)$
+
+$pr = (1-t)⋅p1+t⋅p2 = p1 + t⋅(p2-p1)$
