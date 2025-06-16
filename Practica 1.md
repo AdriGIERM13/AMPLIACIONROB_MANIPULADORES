@@ -19,7 +19,7 @@ Para esta práctica además se aportan una serie de funciones que se encuentran 
 * generate_smooth_path
 
 **Cuaternión**
-Un cuaternión es una representación matemática utilizada para describir rotaciones y orientaciones en el espacio tridimensional. Es especialmente útil en robótica, gráficos por computadora, navegación y control de movimiento, ya que permite interpolar rotaciones de forma suave y sin ambigüedades como el bloqueo de gimbal (gimbal lock).
+Un cuaternión es una representación matemática utilizada para describir rotaciones y orientaciones en el espacio tridimensional. Es especialmente útil en robótica, gráficos por computadora, navegación y control de movimiento, ya que permite interpolar rotaciones de forma suave.
 
 En aplicaciones como el control de movimiento de manipuladores robóticos o sistemas de navegación inercial, los cuaterniones se emplean para representar orientaciones de manera estable y eficiente.
 
@@ -30,3 +30,6 @@ Una propiedad importante de los cuaterniones es que, al aplicarlos sobre un vect
 
 **Interpolación Cartesiana** 
 La interpolación cartesiana se caracteriza por lograr una variación lineal de la posición y la orientación; esta última utiliza la representación de la orientación mediante cuaterniones. Por lo tanto, al vincular dos desplazamientos rectilíneos, se produce una discontinuidad de velocidad en el punto de transición.
+
+## Apartado 1
+Para el primer apartado se pide completar la función qpinter, esta debe ralizar la interpolación de cuaterniones basandose en el métdodo de Tayler que calcula el cuaternión intermedio entre el punto inicial y el final. El valor del parametro lambda debe de satisfacer  0≤la≤1. 
