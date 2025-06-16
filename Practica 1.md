@@ -11,7 +11,7 @@ Para la siguinte práctica se hacen uso de las siguientes funciones:
 * zyz2tr : Se encarga de convertir el vector [ α ,β ,γ ] de ZYZ (ángulos de Euler) a una Matriz homogénea T.
 * tr2zyz : Obtiene la representación [ α ,β ,γ ] de ZYZ (ángulos de Euler) a partir de una transformación T.
 * tr2q   : Convierte la matriz homogénea T al cuaternión q.
-* tr2q   : Calcula la matriz homoegenea T correspondiente al cuaternión q.
+* q2tr   : Calcula la matriz homoegenea T correspondiente al cuaternión q.
 
   
 **Funciones incompletas**
@@ -40,4 +40,7 @@ Para el primer apartado se pide completar la función qpinter, esta debe ralizar
 
 Para obtener la interpolación,  primero se obtienen las posiciones de las matrices homogeneas, para realizar una interpolación lineal entre p1 y p2.
 
-$pr = (1-t)⋅p1+t⋅p2 = p1 + t⋅(p2-p1)$
+$pr = (1-lambda)⋅p1+lambda⋅p2 = p1 + lambda⋅(p2-p1)$
+
+Con las funciones tr2q podemos obtener el valor de los cuaterniones normalizados de las matrices homogeneas. Los cuaterniones obtenidso 𝑞1 y 𝑞2 representan las orientaciones de las poses P1 y P2. En la interpolación para obtener el camino más corto en el espacio articular, se verifica si el producto entre 𝑞1 y 𝑞2 es negativo. Luego se calcula la rotación relativa  entre los cuaterniones mediante el producto (función qqmul) y a partir de esta rotación se obtiene el eje y ángulo de rotación. Con esto podemos generar un cuternión de rotación intermedio. El cuaternión interpolado 𝑞𝑟 se obtiene aplicando esta rotación intermedia al cuaternión original 𝑞1, dando como resultado una orientación suavemente interpolada entre P1 y P2
+ 
