@@ -5,6 +5,7 @@ El objetivo de esta práctica es representar la trayectoria cartesiana de un man
 Además, se garantiza que durante el movimiento desde la postura inicial hasta la final no se saturen los actuadores, asegurando así un comportamiento dinámicamente factible del sistema.
 
 **Funciones aportadas**
+
 Para la siguinte práctica se hacen uso de las siguientes funciones:
 * cartesian_planning: El codigo se encarga de realizar la simulación de la trayectoria del manipulador ABB IRB120
 * zyz2tr : Se encarga de convertir el vector [ α ,β ,γ ] de ZYZ (ángulos de Euler) a una Matriz homogénea T.
@@ -36,3 +37,6 @@ La interpolación cartesiana se caracteriza por lograr una variación lineal de 
 
 ## Apartado 1
 Para el primer apartado se pide completar la función qpinter, esta debe ralizar la interpolación de cuaterniones basandose en el métdodo de Tayler que calcula el cuaternión intermedio entre el punto inicial y el final. El valor del parametro lambda debe de satisfacer  0≤la≤1. 
+
+Para obtener la interpolación,  primero se obtienen las posiciones de las matrices homogeneas, para realizar una interpolación lineal entre p1 y p2.
+                                  $pr = (1-t)⋅p1+t⋅p2 = p1 + t⋅(p2-p1)$
