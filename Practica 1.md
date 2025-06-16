@@ -4,7 +4,7 @@ El objetivo de esta práctica es representar la trayectoria cartesiana de un man
 
 Además, se garantiza que durante el movimiento desde la postura inicial hasta la final no se saturen los actuadores, asegurando así un comportamiento dinámicamente factible del sistema.
 
-##Funciones 
+**Funciones aportadas**
 Para la siguinte práctica se hacen uso de las siguientes funciones:
 * cartesian_planning: El codigo se encarga de realizar la simulación de la trayectoria del manipulador ABB IRB120
 * zyz2tr : Se encarga de convertir el vector [ α ,β ,γ ] de ZYZ (ángulos de Euler) a una Matriz homogénea T.
@@ -14,6 +14,7 @@ Para la siguinte práctica se hacen uso de las siguientes funciones:
 
   
 **Funciones incompletas**
+
 Para esta práctica además se aportan una serie de funciones que se encuentran incompletas y que se han de completar.
 * qpinter
 * generate_smooth_path
