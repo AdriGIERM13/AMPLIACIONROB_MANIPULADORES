@@ -46,7 +46,7 @@ Para el caso de estudio de la práctica, se considera una trayectoria formada po
 </p>
 <p align="center"><em>Figura 2 : Diagrama de posición y velocidad </em></p>
 
-En la tryectoria trazada, se realiza un ajuste gradual en la velocidad  durante un intervalo desde un instante de tiempo desde −τ (antes de alcanzar P<sub>1</sub>) hasta τ (después de alcanzar P<sub>1</sub>). La velocidad en este intervalo cambiará linealmente la velocidad desde ΔP<sub>1</sub> / T<sub>1</sub> hasta ΔP<sub>2</sub> / T<sub>2</sub>.  Para hacer el cambio de trayectoria más suave, se necesita encontrar una función matemática que describa como debe camabiar la posicion en el intervalo [−τ , τ]. Dicha función es una parabola o una funcinión cuadratica. 
+En la trayectoria trazada, se realiza un ajuste gradual en la velocidad durante un intervalo desde un instante de tiempo desde −τ (antes de alcanzar P<sub>1</sub>) hasta τ (después de alcanzar P<sub>1</sub>). La velocidad en este intervalo cambiará linealmente la velocidad desde ΔP<sub>1</sub> / T<sub>1</sub> hasta ΔP<sub>2</sub> / T<sub>2</sub>. Para hacer el cambio de trayectoria más suave, se necesita encontrar una función matemática que describa cómo debe cambiar la posición en el intervalo [−τ , τ]. Dicha función es una parábola o una función cuadrática.
 
 Aplicando las condiciones de borde en ambos extremos del segmento y definiendo la aceleración en el área, la posición se obtiene como:
 
