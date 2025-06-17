@@ -12,4 +12,6 @@ Los videos con los resultados de la simulaciones se pueden ver en la carpeta vid
 
 "PRACTICA3_1": En este caso vamos a modificar la masa y la longitud del primer eslabón de tal forma, según los cálculos realizados para el torque el brazo se eleva, llegando a una posición fija donde se mantiene estable.
 
-"PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado de esta simulación es un brazo que nunca alcanza la estabilidad, comienza a oscilar de forma irregular e impredecible.
+"PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado es el mismo, tiende a la estabilidad pero con ambos eslabones hacia arriba.
+
+
