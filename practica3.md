@@ -46,6 +46,27 @@ Como resultado, el brazo del manipulador se mantiene estático.
 
 Utilizando la herramienta wrench_trackbar_publisher.py incluida dentro del paquete uma_control podemos aplicar fuerzas en X e Y a través de un interfaz(en Z no porque el manipulador es de dos dimensiones). Esto se comprueba en el video "SIMULACION_APLICACION_FUERZAS" en la carpeta de videos.
 
+*¿Cuál es el comportamiento del robot cuando aplico fuerzas virtuales?*
+
+Como se puede ver al principio vídeo, al aplicarle fuerza postiva en la coordenada x, este se mueve en esta dirección, intentando llegar a un punto de reposo pero no de una manera fija y lineal, sino que va oscilando alrededor de esa posición. Al igual que aplicando fuerza negativa en la dirección Y, el brazo baja, pero no de una manera controlado, oscila de un lado a otro debido a las fuerzas no lineales que también están actuando en el brazo.
+
+## Linealización por control dinámico inverso
+
+Una vez implementado el controlador de compensación gravitatoria, es posible compensar la dinámica no lineal completa del manipulador utilizando linealización por realimentación.
+
+De esta manera forzamos al manipulador a comportarse según una dinámica deseada, eliminando los efectos que producen su propia dinámica interna, como la inercia, las fuerzas de Coriolis, la fricción y la gravedad.
+
+Para ello debemos calcular el torque no solo para contrarrestar la gravedad, sino para compensar toda la dinámica del sistema.
+
+Es importante destacar que esta compensación completa solo funciona si el modelo dinámico utilizado es una representación exacta del manipulador real, lo cual nunca se cumple en la realidad. El esquema de compensación se puede ver en la figura 3.
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/587aee69-7e18-44a7-a1d9-bde6a33bdac6" alt="image" width="600"><br>
+  <em>3. Diagrama de compensación completa.</em>
+</p>
+
+
 *-- PREGUNTAS--*
 
 ¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?
@@ -70,10 +91,7 @@ https://github.com/user-attachments/assets/e4e5f097-2d02-4b52-94e0-59d683eec735
 "PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado es el mismo, tiende a la estabilidad pero con ambos eslabones hacia arriba.
 
 
-
 https://github.com/user-attachments/assets/35f66d16-b8ba-4edb-88af-00b3bc10c339
-
-
 
 B
 
@@ -81,9 +99,6 @@ En el video "PRACTICA3_DYNAMICS" se muestra la simulación cambiando los paráme
 
 
 https://github.com/user-attachments/assets/e68be221-425c-4573-887c-8122aaa17d92
-
-
-
 
 En la figura 4 también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
 
