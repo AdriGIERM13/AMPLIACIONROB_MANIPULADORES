@@ -1,0 +1,15 @@
+PRÁCTICA 3:
+
+* -- PREGUNTAS-- 
+
+¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?
+
+Si el modelo dinámico utilizado para calcular la compensación no coincide exactamente con la dinámica real del manipulador, se producirán errores a la hora de calcular la compensación ya que las matrices M, C, y g tendrán valores distintos, y por tanto el brazo no podrá nunca mantener el equilibrio.
+
+Vamos a comprobarlo modificando los parámetros en gravity compensation dentro de dynamics_params_yaml:
+
+Los videos con los resultados de la simulaciones se pueden ver en la carpeta videos.
+
+"PRACTICA3_1": En este caso vamos a modificar la masa y la longitud del primer eslabón de tal forma, según los cálculos realizados para el torque el brazo se eleva, llegando a una posición fija donde se mantiene estable.
+
+"PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado de esta simulación es un brazo que nunca alcanza la estabilidad, comienza a oscilar de forma irregular e impredecible.
