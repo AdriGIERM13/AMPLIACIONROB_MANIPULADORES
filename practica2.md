@@ -125,4 +125,3 @@ Como es lógico, al cambiar este valor modifica directamente la intensidad de la
 
 Vamos a probarlo con un ejemplo:
 
-https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963
