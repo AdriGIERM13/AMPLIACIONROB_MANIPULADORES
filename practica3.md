@@ -1,6 +1,6 @@
 PRÁCTICA 3:
 
-* -- PREGUNTAS-- *
+*-- PREGUNTAS--*
 
 ¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?
 
