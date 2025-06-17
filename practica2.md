@@ -1,4 +1,4 @@
-PRÁCTICA 2: Manipulator dynamics simulation.
+# PRÁCTICA 2: Manipulator dynamics simulation.
 
 Para comenzar con esta práctica, lo primero hay que hacer es configurar el entorno de ROS 2 Humble, así como crear nuestro repositorio y descargar los paquetes proporcionados por el profesor.
 
@@ -24,7 +24,7 @@ Publicadores:
 
 A continuación vamos a implementar la dinámica del manipulador, la cuál viene dada por la ecuación:
 
-M(q) * q̈ + C(q,q̇) * q̇ + Fb * q̇ +g(q) = τ+τext
+M(q) * q̈ + C(q,q̇) * q̇ + Fb * q̇ +g(q) = τ+τext (1)
 
 donde:
 
@@ -54,5 +54,50 @@ Para calcular las aceleraciones, necesitamos calcular las matrices y vectores ap
 
 La ecuación para calcular la ecuación es la siguiente:
 
+q̈(k+1) = M⁻¹(q_k) * [ τ_k + τ_ext(k) - C(q_k, q̇(k)) * q̇(k) - Fb * q̇(k) - g(q_k) ]
 
+Haciendo la integral de la aceleración obtengo la velocidad, y de igual forma integrando la velocidad obtengo la posición.
+
+Al lanzar todos los nodos y ejectutar el rqt_graph nos queda de la siguente forma:
+![NodeGraphLab2](https://github.com/user-attachments/assets/ca4d9a38-58b3-4d4d-9b8e-bd1586e68cb8)
+
+Vamos a realizar la simulación y capturar los resultados utilizando plotjuggler.
+
+En primer lugar utilizamos los parámetros por defecto que se pueden observar en la imagen:
+![Parametrospordefecto](https://github.com/user-attachments/assets/5227fa31-345c-4989-88de-7ede906589d8)
+
+El resultado de la simulación con estos parámetros es: 
+
+![POS_VEL_ACEL](https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963)
+
+*PREGUNTAS*
+
+¿Cuales son los efectos de modificar los parámetros de la dinámica del brazo?
+
+Los parámetros que podemos modificar en el archivo dynamics_params.yaml son los siguientes:
+
+m1: Masa del primer eslabón del manipulador.
+m2: Masa del segundo eslabón del manipulador.
+l1: Longitud del primer eslabón del manipulador.
+l2: Longitud del segundo eslabón del manipulador.
+b1: Coeficiente de amortiguamiento de la primera articulación.
+b2: Coeficiente de amortiguamiento de la segunda articulación.
+g_: Aceleración debida a la gravedad.
+
+En esta simulación el manipulador está sometido únicamente a la fuerza de la gravedad, por lo que si modificmoos los parámetros ocurrirá lo siguiente: 
+
+Masa de los eslabones (m1 y m2):
+
+Al aumentar la masa, la fuerza gravitatoria sobre cada eslabón será mayor, por lo que el brazo tenderá a caer o desplazarse con más rapidez y fuerza debido al peso aumentado. Por otro lado, reduciendo la masa, el efecto de la gravedad será menor, y el brazo caerá más lentamente y con menos fuerza.
+
+Longitud de los eslabones (l1 y l2):
+Cambiar la longitud afecta el momento gravitacional. Si el eslabón es más largo genera un mayor par (torque) debido a la gravedad, porque el peso actúa a mayor distancia del eje de rotación. Esto puede hacer que el brazo se mueva más rápido o con mayor esfuerzo bajo su propio peso. Si acortamos los eslabones, el torque gravitacional será menor.
+
+Coeficientes de amortiguamiento (b1 y b2):
+El amortiguamiento no cambia la fuerza gravitatoria, pero sí afecta cómo se mueve el brazo bajo esa fuerza. Un amortiguamiento alto frenará el movimiento, haciendo que el brazo descienda más lentamente y sin oscilar. Un amortiguamiento bajo permitirá movimientos más rápidos y posibles oscilaciones.
+
+Aceleración gravitatoria (g):
+Como es lógico, al cambiar este valor modifica directamente la intensidad de la fuerza de gravedad. A mayor gravedad, mayor será la fuerza que actúa sobre el manipulador, aumentando el torque y la velocidad con la que se mueven los eslabones. Si disminuimos este valor, el efecto será el contrario, el brazo tardará más en caer.
+
+Vamos a probarlo con un ejemplo:
 
