@@ -199,7 +199,23 @@ Para ello se ha desarrollado el siguinte codigo:
             q = qqmul(qqmul(q1, q_giro1), q_giro2);
             Q = q / norm(q);
         end
+
     end
 
+## Apartado 3 
 
- 
+**Representación gráfica** 
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/5e39642f-bcc6-4383-a0b7-1476f7b98da4" alt=" Figura3: Trayectoría en el espacio cartesiano" width="500">
+</p>
+<p align="center"><em>Figura3: Trayectoría en el espacio cartesiano </em></p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d2df8f13-e3d6-4dc8-bd08-a795b070729e" alt=" Figura4: Trayectoría de posición" width="500">
+</p>
+<p align="center"><em>Figura4: Trayectoría de posición </em></p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1d4b6f52-4a0b-4eb1-b7f8-431330fd328b" alt=" Figura5: Trayectoría de Orientación" width="500">
+</p>
+<p align="center"><em>Figura5: Trayectoría de Orientación </em></p>
