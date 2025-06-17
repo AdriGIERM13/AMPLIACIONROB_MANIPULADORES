@@ -66,6 +66,26 @@ Es importante destacar que esta compensación completa solo funciona si el model
   <em>3. Diagrama de compensación completa.</em>
 </p>
 
+Para realizar la compensación debemos crear el nodo dynamics_cancellation.cpp. En este programaremos los torques deseados en cancel_dynamics. El código completo se puede ver en la figura 4. En este código hemos inicializado todas las matrices y vectores que vamos a utilizar y hemos aplicado la fórmula de la figura 5 para calcular el torque.
+
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2c090886-408f-4908-b94c-fe1f035a9b9d" alt="image" width="600"><br>
+  <em>4. Código linealización competa.</em>
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6d79708a-88a6-4bbb-b25d-5581ca126b88" alt="image" width="600"><br>
+  <em>5. Ecuación cálculo torque completa.</em>
+</p>
+
+Para comprobar que funciona correctamente se ha generado una trayectoria cúbica incluida en el paquete uma_arm_control. El resultado de la simulación en plotjuggler se puede ver en la figura 6.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/613d9f76-7534-4d17-b459-ad4ce7e7a20f" alt="image" width="600"><br>
+  <em>5. Ecuación cálculo torque completa.</em>
+</p>
 
 *-- PREGUNTAS--*
 
