@@ -123,5 +123,6 @@ Aceleración gravitatoria (g):
 
 Como es lógico, al cambiar este valor modifica directamente la intensidad de la fuerza de gravedad. A mayor gravedad, mayor será la fuerza que actúa sobre el manipulador, aumentando el torque y la velocidad con la que se mueven los eslabones. Si disminuimos este valor, el efecto será el contrario, el brazo tardará más en caer.
 
-Vamos a probarlo con un ejemplo:
+El ejemplo de la simulación se encuentra en la carpeta videos con el nombre "PRACTICA2_PARAMETROS_CAMBIADOS"
 
+Para realizar la simulación hemos aumentado tanto las masas de los eslabones m1 y m2 así como hemos aumentado los coeficientes de amortiguamiento. El resultado es que el brazo comienza con una aceleración mayor debido al aumento del peso de los eslabones, los cuáles están sometidos a las fuerzas gravitatorias. Por otra parte, se observa que las oscilaciones son un poco más lentas y tarda algo menos en llegar a la posición de reposo. 
