@@ -13,3 +13,10 @@ Los videos con los resultados de la simulaciones se pueden ver en la carpeta vid
 "PRACTICA3_1": En este caso vamos a modificar la masa y la longitud del primer eslabón de tal forma, según los cálculos realizados para el torque el brazo se eleva, llegando a una posición fija donde se mantiene estable.
 
 "PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado es el mismo, tiende a la estabilidad pero con ambos eslabones hacia arriba.
+
+En el video "PRACTICA3_DYNAMICS" se muestra la simulación cambiando los parámetros de todas las variables en la parte de "dynamics_cancellation". Como resultado vemos que los eslabones del manipulador adoptan una posición fija rapidámente que es variable según los parámetros.
+
+En la figura siguiente también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
+![dynamic_comp_1](https://github.com/user-attachments/assets/4a6207a1-f90f-43ca-b0bc-89d00e7ae9b7)
+
+![dynamic_comp_2](https://github.com/user-attachments/assets/67dd0ba2-9248-4168-ab6b-f788272b93d6)
