@@ -45,6 +45,7 @@ Como resultado, el brazo del manipulador se mantiene estático.
 ### Simulación de fuerzas
 
 Utilizando la herramienta wrench_trackbar_publisher.py incluida dentro del paquete uma_control podemos aplicar fuerzas en X e Y a través de un interfaz(en Z no porque el manipulador es de dos dimensiones). Esto se comprueba en el video "SIMULACION_APLICACION_FUERZAS" en la carpeta de videos.
+
 *-- PREGUNTAS--*
 
 ¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?
@@ -59,21 +60,40 @@ Los videos con los resultados de la simulaciones se pueden ver en la carpeta vid
 
 "PRACTICA3_1": En este caso vamos a modificar la masa y la longitud del primer eslabón de tal forma, según los cálculos realizados para el torque el brazo se eleva, llegando a una posición fija donde se mantiene estable.
 
+
+https://github.com/user-attachments/assets/e4e5f097-2d02-4b52-94e0-59d683eec735
+
+/a237da0c-efcc-4fd2-af9c-e7f79fd77865
+
+
+
 "PRACTICA3_2": Aquí se ha probado a cambiar todos los parámetros, el resultado es el mismo, tiende a la estabilidad pero con ambos eslabones hacia arriba.
+
+
+
+https://github.com/user-attachments/assets/35f66d16-b8ba-4edb-88af-00b3bc10c339
+
+
 
 B
 
 En el video "PRACTICA3_DYNAMICS" se muestra la simulación cambiando los parámetros de todas las variables en la parte de "dynamics_cancellation". Como resultado vemos que los eslabones del manipulador adoptan una posición fija rapidámente que es variable según los parámetros.
 
-En la figura x también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
+
+https://github.com/user-attachments/assets/e68be221-425c-4573-887c-8122aaa17d92
+
+
+
+
+En la figura 4 también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4a6207a1-f90f-43ca-b0bc-89d00e7ae9b7" alt="image" width="600"><br>
-  <em>1.Posición manipulador con parámetros del video PRACTICA3_DYNAMICS.</em>
+  <em>3.Posición manipulador con parámetros del video PRACTICA3_DYNAMICS.</em>
 </p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/67dd0ba2-9248-4168-ab6b-f788272b93d6" alt="image" width="600"><br>
-  <em>1.Posición manipulador con otros parámetros.</em>
+  <em>4.Posición manipulador con otros parámetros.</em>
 </p>
 
