@@ -50,7 +50,7 @@ Además, en nuestro caso, tenemos un manipulador de 2 grados de libertad.
 
 Para calcular las aceleraciones, necesitamos calcular las matrices y vectores aplicando las formulaciones de Lagrange y de Newton Euler:
 
-![image](https://github.com/user-attachments/assets/eaa46905-3f2b-4996-b87d-5a36a4fc1b0c)
+!Ecuaciones(https://github.com/user-attachments/assets/eaa46905-3f2b-4996-b87d-5a36a4fc1b0c)
 
 La ecuación para calcular la ecuación es la siguiente:
 
