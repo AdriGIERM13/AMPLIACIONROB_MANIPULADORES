@@ -68,6 +68,8 @@ Con las funciones tr2q se puede obtener el valor de los cuaterniones nomralizado
 
 Luego se calcula la rotación relativa  entre los cuaterniones mediante el producto (función qqmul) y a partir de esta rotación se obtiene el eje y ángulo de rotación. Con esto podemos generar un cuternión de rotación intermedio. El cuaternión interpolado 𝑞𝑟 se obtiene aplicando esta rotación intermedia al cuaternión original 𝑞1, dando como resultado una orientación suavemente interpolada entre P1 y P2.
 
+El parámetro lambda indica el grado de avance del tramo. Cuando vale 0, se encuentra al inicio; cuando vale 1, se encuentra al final. A medida que aumenta, se va recorriendo la trayectoria entre ambos puntos.
+
 El codigo desarrollado es el siguinte: 
 
         function [pr,qr] = qpinter(P1, P2, t)
@@ -103,9 +105,17 @@ El codigo desarrollado es el siguinte:
 
 ## Apartado 2
 
-Para el segundp apartado de la ptactica se pide completar la función **generate_smooth_path** la cual debe de calcular la transformaciçon correspondiente al moviemiento de las diferentes trayectorias desde P<sub>0</sub>  a P<sub>2</sub>, pasando por el punto intermedio P<sub>1</sub>. Como se comentado antes el paso por el punto P<sub>1</sub>  debe de estar suavizado por el método de Taylor. En los parametros de entrada de la funcion, τ y T deben de corresponder al intervalo de transición y al timepo total utilizado para recorrer el camino. 
+Para el segundo apartado de la práctica se pide completar la función **generate_smooth_path** la cual debe calcular la transformación correspondiente al movimiento de las diferentes trayectorias desde P<sub>0</sub> a P<sub>2</sub>, pasando por el punto intermedio P<sub>1</sub>. Como se ha comentado antes, el paso por el punto P<sub>1</sub> debe estar suavizado por el método de Taylor. En los parámetros de entrada de la función, τ y T deben corresponder al intervalo de transición y al tiempo total utilizado para recorrer el camino.
 
-Para trazar el trayectoria deseada, primero se obtienen las posiciones y lo cuaterniones normalizados de cada uno de los puntos de interes de la trayectoria. Una vez obtenido se obtiene el incremento de posición entre los puntos P<sub>0</sub> y P<sub>1</sub> y P<sub>1</sub> y P<sub>2</sub>. Para el primer tramo de la tryactoria se establece un rango de tiempo de (t <= -tau), antes del tramo de la trayectoria que se suaviza. 
+Para trazar la trayectoria deseada, primero se obtienen las posiciones y los cuaterniones normalizados de cada uno de los puntos de interés de la trayectoria. Una vez obtenidos, se calcula el incremento de posición entre los puntos P<sub>0</sub> y P<sub>1</sub> y entre P<sub>1</sub> y P<sub>2</sub>. Para los tramos donde no es necesario que se suavice la trayectoria, establecemos los rangos de tiempo (t ≤ -τ) y (t ≥ τ), donde se calcula la interpolación lineal con la función qpinter. Para el tramo de la trayectoria [−τ < t < τ], donde se debe realizar el suavizado, se emplea la interpolación cuadrática tanto de la posición como de la orientación. 
+
+P = p1 - dP1 * (tau - t)^2 / (4 * tau * T) + dP2 * (tau + t)^2 / (4 * tau * T);
+
+Una vez calculada la posición suavizada, se determinan dos ángulos de giro ajustados con una función cuadrática para suavizar la transición de orientación. Finalmente, se generan dos cuaterniones de rotación a partir de esos ángulos, que se combinan con el cuaternión inicial y se normalizan para obtener la orientación suavizada en el punto actual de la trayectoria.
+
+angulo = -theta1 * (tau - t)^2 / (4 * tau * T)
+
+q_giro = [cos(angulo / 2), u1 * sin(angulo / 2)]
 
 Para ello se ha desarrollado el siguinte codigo:
 
