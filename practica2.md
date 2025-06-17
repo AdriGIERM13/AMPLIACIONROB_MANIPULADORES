@@ -50,7 +50,11 @@ Además, en nuestro caso, tenemos un manipulador de 2 grados de libertad.
 
 Para calcular las aceleraciones, necesitamos calcular las matrices y vectores aplicando las formulaciones de Lagrange y de Newton Euler:
 
-!Ecuaciones(https://github.com/user-attachments/assets/eaa46905-3f2b-4996-b87d-5a36a4fc1b0c)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eaa46905-3f2b-4996-b87d-5a36a4fc1b0c" alt="image" width="600"><br>
+  <em>1. Ecuaciones para la matriz de inercia, matriz de fuerzas de Coriolis, matriz de fricción viscosa y vector de fuerzas gravitatorias</em>
+</p>
+
 
 La ecuación para calcular la ecuación es la siguiente:
 
@@ -59,30 +63,47 @@ q̈(k+1) = M⁻¹(q_k) * [ τ_k + τ_ext(k) - C(q_k, q̇(k)) * q̇(k) - Fb * q̇
 Haciendo la integral de la aceleración obtengo la velocidad, y de igual forma integrando la velocidad obtengo la posición.
 
 Al lanzar todos los nodos y ejectutar el rqt_graph nos queda de la siguente forma:
-![NodeGraphLab2](https://github.com/user-attachments/assets/ca4d9a38-58b3-4d4d-9b8e-bd1586e68cb8)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ca4d9a38-58b3-4d4d-9b8e-bd1586e68cb8" alt="image" width="400"><br>
+<em> 2. Conexión de nodos mediante rqt_graph</em>
+</p>
 
 Vamos a realizar la simulación y capturar los resultados utilizando plotjuggler.
 
-En primer lugar utilizamos los parámetros por defecto que se pueden observar en la imagen:
-![Parametrospordefecto](https://github.com/user-attachments/assets/5227fa31-345c-4989-88de-7ede906589d8)
+En primer lugar utilizamos los parámetros por defecto que se pueden observar en la imagen 3:
 
-El resultado de la simulación con estos parámetros es: 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5227fa31-345c-4989-88de-7ede906589d8" alt="image" width="400"><br>
+<em> 3. Parámetros iniciales</em>
+</p>
 
-![POS_VEL_ACEL](https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963)
+El resultado de la simulación con estos parámetros se observa en la figura 4: 
 
-*PREGUNTAS*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963" alt="image" width="400"><br>
+<em> 3. Resultados de la simulación</em>
+</p>
+
+*--PREGUNTAS--*
 
 ¿Cuales son los efectos de modificar los parámetros de la dinámica del brazo?
 
 Los parámetros que podemos modificar en el archivo dynamics_params.yaml son los siguientes:
 
-m1: Masa del primer eslabón del manipulador.
-m2: Masa del segundo eslabón del manipulador.
-l1: Longitud del primer eslabón del manipulador.
-l2: Longitud del segundo eslabón del manipulador.
-b1: Coeficiente de amortiguamiento de la primera articulación.
-b2: Coeficiente de amortiguamiento de la segunda articulación.
-g_: Aceleración debida a la gravedad.
+- m1: Masa del primer eslabón del manipulador.
+
+- m2: Masa del segundo eslabón del manipulador.
+
+- l1: Longitud del primer eslabón del manipulador.
+
+- l2: Longitud del segundo eslabón del manipulador.
+
+- b1: Coeficiente de amortiguamiento de la primera articulación.
+
+- b2: Coeficiente de amortiguamiento de la segunda articulación.
+
+- g: Aceleración debida a la gravedad.
 
 En esta simulación el manipulador está sometido únicamente a la fuerza de la gravedad, por lo que si modificmoos los parámetros ocurrirá lo siguiente: 
 
@@ -91,13 +112,17 @@ Masa de los eslabones (m1 y m2):
 Al aumentar la masa, la fuerza gravitatoria sobre cada eslabón será mayor, por lo que el brazo tenderá a caer o desplazarse con más rapidez y fuerza debido al peso aumentado. Por otro lado, reduciendo la masa, el efecto de la gravedad será menor, y el brazo caerá más lentamente y con menos fuerza.
 
 Longitud de los eslabones (l1 y l2):
+
 Cambiar la longitud afecta el momento gravitacional. Si el eslabón es más largo genera un mayor par (torque) debido a la gravedad, porque el peso actúa a mayor distancia del eje de rotación. Esto puede hacer que el brazo se mueva más rápido o con mayor esfuerzo bajo su propio peso. Si acortamos los eslabones, el torque gravitacional será menor.
 
 Coeficientes de amortiguamiento (b1 y b2):
+
 El amortiguamiento no cambia la fuerza gravitatoria, pero sí afecta cómo se mueve el brazo bajo esa fuerza. Un amortiguamiento alto frenará el movimiento, haciendo que el brazo descienda más lentamente y sin oscilar. Un amortiguamiento bajo permitirá movimientos más rápidos y posibles oscilaciones.
 
 Aceleración gravitatoria (g):
+
 Como es lógico, al cambiar este valor modifica directamente la intensidad de la fuerza de gravedad. A mayor gravedad, mayor será la fuerza que actúa sobre el manipulador, aumentando el torque y la velocidad con la que se mueven los eslabones. Si disminuimos este valor, el efecto será el contrario, el brazo tardará más en caer.
 
 Vamos a probarlo con un ejemplo:
 
+https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963
