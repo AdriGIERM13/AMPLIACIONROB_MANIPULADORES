@@ -84,7 +84,7 @@ Para comprobar que funciona correctamente se ha generado una trayectoria cúbica
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/613d9f76-7534-4d17-b459-ad4ce7e7a20f" alt="image" width="600"><br>
-  <em>5. Ecuación cálculo torque completa.</em>
+  <em>6. Gráficas de simulación trayectoria cúbica en plotjuggler.</em>
 </p>
 
 *-- PREGUNTAS--*
