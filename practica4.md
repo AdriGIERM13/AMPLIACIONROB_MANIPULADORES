@@ -1,5 +1,7 @@
 # PRÁCTICA 4: IMPEDANCE CONTROL
 
+### INTRODUCCIÓN
+
 Para esta última práctica de ROS, implementaremos un controlador de impedancia (Figura 1).
 
 <p align="center">
@@ -180,7 +182,7 @@ Aunque el sistema utiliza matrices de impedancia diagonales, se observa acoplami
 
 *¿Hace el robot algún movimiento raro y por qué?*
 
-Sí, como se puede ver en los vídeos "EXPERIMENTO2" y "EXPERIMENTO2_2", siempre que el robot trabaje dentro de su espacio operacional funcionará correctamente. Sin embargo, en posiciones muy lejanas (cuando la posición en X o Y está al máximo), el robot entra en un bloqueo donde ni llega a esa posición y se desconfigura ya que después no se puede publicar ninguna otra pose. Esto puede deberse a que al intentar alcanzar una posición pero no llegar, la secuencia en el código no detecta que se ha llegado a la posición deseada y por tanto no continúa procesandose.
+Sí, como se puede ver en los vídeos "EXPERIMENTO2_1" y "EXPERIMENTO2_2", siempre que el robot trabaje dentro de su espacio operacional funcionará correctamente. Sin embargo, en posiciones muy lejanas (cuando la posición en X o Y está al máximo), el robot entra en un bloqueo donde ni llega a esa posición y se desconfigura ya que después no se puede publicar ninguna otra pose. Esto puede deberse a que al intentar alcanzar una posición pero no llegar, la secuencia en el código no detecta que se ha llegado a la posición deseada y por tanto no continúa procesandose.
 
 ### CONCLUSIÓN
 
