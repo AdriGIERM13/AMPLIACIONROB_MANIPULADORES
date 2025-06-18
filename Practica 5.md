@@ -49,8 +49,14 @@ El diagrama equivalente dek sistema por tanto quedaría:
   <em>Figura 1. Diagrama de bloques equivalente del sistema .</em>
 </p>
 
+En el diagrama de bloques se pueden distinguir tres partes.
+La primera corresponde al conjunto de bloques encargados de convertir el error de fuerza en términos de posición, utilizando la constante $C_f$ ​como la acción proporcional. Esta acción solo afecta a la dirección X, ya que existe una restricción impuesta por una pared.
+
+La segunda parte corresponde al conjunto de bloques responsables del control de posición, el cual incluye un bucle interno que calcula la posición actual del manipulador.
+Por último, la tercera parte se encarga del cálculo de la fuerza de contacto, con el fin de implementar el control externo de fuerzas.
+
 ## Simulación con controlador P
-Para la simualcion del sistema que implementa un controlador P, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
+Para la simualción del sistema que implementa un controlador P, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fc9703bd-5a6b-4d12-aad4-3c0ef06d1d49" alt="image" width="600"><br>
@@ -65,19 +71,97 @@ Donde el bloque de control de posicion viene formado por:
 
 El sistema parte de una posición incial de $x_{e_inicial}=[1.3,0.7]$ y donde los parametros del sistema son los siguintes:
 
-* Constante K del sensor:    $K=[1000, 0; 0, 1000] $
-* Controlador $C_F$  :        $C_f=[0.05, 0; 0,0] $
-* Matriz de inercia $M_d$  :   $M_d=[1000, 0; 0,1000] $
-* Ganancia derivativa $K_d$ :   $K_d=[5000, 0; 0,5000] $
+* Constante K del sensor:        $K=[1000, 0; 0, 1000] $
+* Controlador $C_F$  :           $C_f=[0.05, 0; 0,0] $
+* Matriz de inercia $M_d$  :     $M_d=[1000, 0; 0,1000] $
+* Ganancia derivativa $K_d$ :    $K_d=[5000, 0; 0,5000] $
 * Ganancia derivativa $K_d$  :   $K_d=[5000, 0; 0,5000] $
 
 En la simualción obtenemos la siguinte comportamiento:
 *Posición*
-
-![image](https://github.com/user-attachments/assets/128d2d59-f848-4e34-9839-71137aa38b75)
-
 <p align="center">
-  <img src="(https://github.com/user-attachments/assets/6c18d715-c3a9-421d-9e79-f1172d3819f7" alt="image" width="600"><br>
-  <em>Figura 3. Bloque de control de movimiento .</em>
+  <img src="https://github.com/user-attachments/assets/f764cbb6-ba26-4cc6-8e5d-e5fbf0254c4e" alt="image" width="800"><br>
+  <em>Figura 4. Variación de Posición  .</em>
 </p>
 
+Se puede observar que apenas existe error en la consecución de la posición en el eje X, con un pequeño error de aproximadamente 0.15 m. Sin embargo, la posición en el eje Y se mantiene en 0. Esto se debe a que no se aplica ninguna fuerza en la dirección del eje Y, por lo que el controlador recibe una consigna nula, estableciéndose así en dicha posición final.
+
+*Fuerza*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0e34613a-97b6-49ef-9781-15e4be4ffd7f" alt="image" width="800"><br>
+  <em>Figura 5. Variación de Fuerza</em>
+</p>
+
+Como se puede observar en las fuerzas obtenidas a partir de la simulación, el sistema presenta una ganancia de aproximadamente -1.37 en estado estacionario, lo cual se aleja de la consigna establecida de [10 0] N. Esto indica la necesidad de implementar un controlador PI para eliminar el error en régimen permanente.
+Otra propiedad que se puede analizar a través de la simulación es que el sistema presenta un tiempo de establecimiento de 2.5 segundos.
+
+*Concluiones*
+
+La aplicación de un controlador proporcional (P) en el control de fuerza del manipulador no permite lograr un control adecuado del sistema. Esto se debe a que, al no incorporar una acción integral, se genera un error en estado estacionario.
+Por otro lado, dado que el controlador solo aplica una ganancia en el eje X, la consigna en el eje Y se establece como nula, lo que provoca que el manipulador no ejerza ninguna fuerza en esa dirección. 
+
+## Simulación con controlador PI
+del sistema que implementa un controlador PI, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/54fef522-22ea-4351-9af6-0b73b65cd95f" alt="image" width="600"><br>
+  <em>Figura 6. Diagrama de bloques en Simulink con controlador PI .</em>
+</p>
+
+Donde el bloque de controlador PI está formado por el siguinte cojunto de bloques: 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3be5a4db-83cd-4927-a83b-ba0e5047f0eb" alt="image" width="200"><br>
+  <em>Figura 7. Diagrama de bloques del bloque d control PI .</em>
+</p>
+
+Donde los bloques estan formado por:
+
+* Control proporcional $K_p$:  $K_p=[0.03, 0; 0, 0] $
+* Control integral $K_i$       $K_i=[0.03, 0; 0, 0] $
+
+En la simualción obtenemos la siguinte comportamiento:
+*Posición*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fc62962d-6e6b-4e16-a730-1aaf8c38378f" alt="image" width="800"><br>
+  <em>Figura 8. Variación de Posición  .</em>
+</p>
+
+Con la incorporación del controlador PI, se ha logrado reducir el error en régimen estacionario que se presentaba con el uso del controlador proporcional.
+Sin embargo, al igual que en el caso del controlador proporcional, no se aplica una ganancia en el eje Y, por lo que la posición en dicho eje sigue siendo nula.
+
+*Fuerza*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5810214b-835e-431d-b6a5-9086e8bb2082" alt="image" width="800"><br>
+  <em>Figura 9. Variación de Fuerza  .</em>
+</p>
+
+Como se puede observar, se ha logrado reducir el error en estado estacionario, alcanzando una ganancia unitaria. Sin embargo, el sistema presenta un tiempo de establecimiento de 5.4 segundos, lo que indica que el control mediante un controlador PI es más lento en comparación con el controlador proporcional.
+
+*Conclusión*
+Implementando el controlador PI se ha logrado mejorar el control de fuerza del manipulador, obteniendo un error nulo ante una entrada escalón, no obstante se empeora la velocidad de respuesta, generando un sistema más lento. Si nos fijamos existe una diferencia de tiempo entre el establecimiento de la posición y de la fuerza. 
+
+*Mejoras*
+Para poder mejorar la respuesta del sistema será necesario ajustar las ganancias del controlador PI. Para ello vamos a reducir el valor de las ganancias del controlador PI. Para ver como mejora la respuesta se hará un estudio con las nuevas ganancias.
+
+Nuevas ganancias del controlador:
+
+* Control proporcional $K_p$:  $K_p=[0.015, 0; 0, 0] $
+* Control integral $K_i$       $K_i=[0.02, 0; 0, 0] $
+
+Donde la simulación con las nuevas ganancias del controlor otorgan el siguiente comportamiento al sistema:
+
+*Posición*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e8943f0e-943a-4de8-9afd-10edd128c715" alt="image" width="800"><br>
+  <em>Figura 8. Variación de Posición  .</em>
+</p>
+
+*Fuerza*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/41fc9f4b-a94c-454f-bdf5-32e91d6fe8a4" alt="image" width="800"><br>
+  <em>Figura 9. Variación de Fuerza  .</em>
+</p>
+
+Como se puede observar, el ajuste del controlador PI permite que la ganancia del sistema sea unitaria y que el error en régimen permanente ante una entrada escalón sea nulo.
+Además, esta mejora en el controlador reduce el tiempo de establecimiento a 4.4 segundos, lo que representa una mejora en la respuesta del sistema en comparación con el caso anterior.
