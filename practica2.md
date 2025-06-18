@@ -52,13 +52,13 @@ Para calcular las aceleraciones, necesitamos calcular las matrices y vectores ap
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/eaa46905-3f2b-4996-b87d-5a36a4fc1b0c" alt="image" width="600"><br>
-  <em>1. Ecuaciones para la matriz de inercia, matriz de fuerzas de Coriolis, matriz de fricción viscosa y vector de fuerzas gravitatorias</em>
+  <em>1. Ecuaciones 2, 3, 4 y 5. Matriz de inercia, matriz de fuerzas de Coriolis, matriz de fricción viscosa y vector de fuerzas gravitatorias</em>
 </p>
 
 
 La ecuación para calcular la ecuación es la siguiente:
 
-q̈(k+1) = M⁻¹(q_k) * [ τ_k + τ_ext(k) - C(q_k, q̇(k)) * q̇(k) - Fb * q̇(k) - g(q_k) ]
+q̈(k+1) = M⁻¹(q_k) * [ τ_k + τ_ext(k) - C(q_k, q̇(k)) * q̇(k) - Fb * q̇(k) - g(q_k) ] (6)
 
 Haciendo la integral de la aceleración obtengo la velocidad, y de igual forma integrando la velocidad obtengo la posición.
 
@@ -66,7 +66,7 @@ Al lanzar todos los nodos y ejectutar el rqt_graph nos queda de la siguente form
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/ca4d9a38-58b3-4d4d-9b8e-bd1586e68cb8" alt="image" width="400"><br>
-<em> 2. Conexión de nodos mediante rqt_graph</em>
+<em> Figura 1. Conexión de nodos mediante rqt_graph</em>
 </p>
 
 Vamos a realizar la simulación y capturar los resultados utilizando plotjuggler.
@@ -75,19 +75,19 @@ En primer lugar utilizamos los parámetros por defecto que se pueden observar en
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5227fa31-345c-4989-88de-7ede906589d8" alt="image" width="400"><br>
-<em> 3. Parámetros iniciales</em>
+<em> Figura 2. Parámetros iniciales</em>
 </p>
 
 El resultado de la simulación con estos parámetros se observa en la figura 4: 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963" alt="image" width="400"><br>
-<em> 3. Resultados de la simulación</em>
+<em> Figura 3. Resultados de la simulación</em>
 </p>
 
 *--PREGUNTAS--*
 
-¿Cuales son los efectos de modificar los parámetros de la dinámica del brazo?
+*¿Cuales son los efectos de modificar los parámetros de la dinámica del brazo?*
 
 Los parámetros que podemos modificar en el archivo dynamics_params.yaml son los siguientes:
 
