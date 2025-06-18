@@ -10,7 +10,7 @@ El controlador más sencillo dentro de los controladores por dinámica inversa e
 
 Matemáticamente, el torque que genera el controlador se define como:
 
-𝜏 = 𝑔(𝑞)
+𝜏 = 𝑔(𝑞) (1)
 
 Donde:
 
@@ -30,14 +30,14 @@ En la figura 1 se muestra el código para calcular este torque, que es igual que
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4bec5c24-ae3b-4b96-92d3-02d6b66eaed6" alt="image" width="600"><br>
-  <em>1.Código compensador de la gravedad.</em>
+  <em>Figura 1.Código compensador de la gravedad.</em>
 </p>
 
 El gráfico de los nodos se puede observar en la figura 2.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cfbd6155-8704-40b0-9890-d61e9e91f1d6" alt="image" width="600"><br>
-  <em>2. Gráfico de nodos mediante rqt_graph.</em>
+  <em>Figura 2. Gráfico de nodos mediante rqt_graph.</em>
 </p>
 
 Como resultado, el brazo del manipulador se mantiene estático. 
@@ -63,33 +63,33 @@ Es importante destacar que esta compensación completa solo funciona si el model
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/587aee69-7e18-44a7-a1d9-bde6a33bdac6" alt="image" width="600"><br>
-  <em>3. Diagrama de compensación completa.</em>
+  <em>Figura 3. Diagrama de compensación completa.</em>
 </p>
 
-Para realizar la compensación debemos crear el nodo dynamics_cancellation.cpp. En este programaremos los torques deseados en cancel_dynamics. El código completo se puede ver en la figura 4. En este código hemos inicializado todas las matrices y vectores que vamos a utilizar y hemos aplicado la fórmula de la figura 5 para calcular el torque.
+Para realizar la compensación debemos crear el nodo dynamics_cancellation.cpp. En este programaremos los torques deseados en cancel_dynamics. El código completo se puede ver en la figura 4. En este código hemos inicializado todas las matrices y vectores que vamos a utilizar y hemos aplicado la fórmula de la ecuación 2 para calcular el torque.
 
 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2c090886-408f-4908-b94c-fe1f035a9b9d" alt="image" width="600"><br>
-  <em>4. Código linealización competa.</em>
+  <em>Figura 4. Código linealización competa.</em>
 </p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6d79708a-88a6-4bbb-b25d-5581ca126b88" alt="image" width="600"><br>
-  <em>5. Ecuación cálculo torque completa.</em>
+  <em>Ecuación 2. Ecuación cálculo torque completa.</em>
 </p>
 
-Para comprobar que funciona correctamente se ha generado una trayectoria cúbica incluida en el paquete uma_arm_control. El resultado de la simulación en plotjuggler se puede ver en la figura 6.
+Para comprobar que funciona correctamente se ha generado una trayectoria cúbica incluida en el paquete uma_arm_control. El resultado de la simulación en plotjuggler se puede ver en la figura 5.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/613d9f76-7534-4d17-b459-ad4ce7e7a20f" alt="image" width="600"><br>
-  <em>6. Gráficas de simulación trayectoria cúbica en plotjuggler.</em>
+  <em>Figura 5. Gráficas de simulación trayectoria cúbica en plotjuggler.</em>
 </p>
 
 *-- PREGUNTAS--*
 
-¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?
+*¿Qué ocurre si el modelo dinámico de compensación no es exactamente igual al modelo dinámico real del manipulador?*
 
 A
 
@@ -120,15 +120,15 @@ En el video "PRACTICA3_DYNAMICS" se muestra la simulación cambiando los paráme
 
 https://github.com/user-attachments/assets/e68be221-425c-4573-887c-8122aaa17d92
 
-En la figura 4 también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
+En la figura 7 también se muestra otro ejemplo de la posición de los brazos con otros parámetros.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4a6207a1-f90f-43ca-b0bc-89d00e7ae9b7" alt="image" width="600"><br>
-  <em>3.Posición manipulador con parámetros del video PRACTICA3_DYNAMICS.</em>
+  <em>Figura 6.Posición manipulador con parámetros del video PRACTICA3_DYNAMICS.</em>
 </p>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/67dd0ba2-9248-4168-ab6b-f788272b93d6" alt="image" width="600"><br>
-  <em>4.Posición manipulador con otros parámetros.</em>
+  <em>Figuta 7.Posición manipulador con otros parámetros.</em>
 </p>
 
