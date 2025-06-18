@@ -177,3 +177,11 @@ Las matrices de impedancia utilizadas (masa, amortiguamiento y rigidez) son estr
 *¿Cómo se podría mitigar este efecto?*
 
 Aunque el sistema utiliza matrices de impedancia diagonales, se observa acoplamiento entre ejes en la simulación. Este comportamiento podría mitigarse usando estrategias como pueden ser: mejorar el modelado del Jacobiano y su derivada, proyectar las fuerzas sobre los ejes deseados  o introducir compensaciones dinámicas. Además, podríamos ajustar los parámetros de impedancia con el objetivo de mejorar el aislamiento entre ejes y obtener un comportamiento más preciso del efector final.
+
+*¿Hace el robot algún movimiento raro y por qué?*
+
+Sí, como se puede ver en los vídeos "EXPERIMENTO2" y "EXPERIMENTO2_2", siempre que el robot trabaje dentro de su espacio operacional funcionará correctamente. Sin embargo, en posiciones muy lejanas (cuando la posición en X o Y está al máximo), el robot entra en un bloqueo donde ni llega a esa posición y se desconfigura ya que después no se puede publicar ninguna otra pose. Esto puede deberse a que al intentar alcanzar una posición pero no llegar, la secuencia en el código no detecta que se ha llegado a la posición deseada y por tanto no continúa procesandose.
+
+### CONCLUSIÓN
+
+En esta última práctica de ROS hemos logrado un control completo de nuestro brazo manipulador teniendo en cuenta todos los efectos que actúan sobre él (fuerza de gravedad, Coriolis) utilizando nodos como la cancelación de dinámica así como el controlador de impedancias. Además hemos comprobado mediante diversas herramientas el resultado de aplicar fuerzas en las direcciones X e Y en el brazo, y seleccionar una pose objetivo para que el brazo se coloque en la posición que deseemos.
