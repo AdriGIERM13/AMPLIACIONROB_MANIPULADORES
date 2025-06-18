@@ -138,4 +138,42 @@ El código implementado es el que se ve en la figura 6.
   <em>Figura 6. Código del cálculo de la aceleración articular.</em>
 </p>
 
-El video del experimento 1, aplicando fuerzas al robot con el control de impedancia se puede ver en la carpeta videos/practica4/EXPERIMENT01. Recalcar que ha sido grabado con el móvil ya que el ordenador no era capaz de grabar la pantalla correctamente con tantos nodos en funcionamiento.
+El video del experimento 1, aplicando fuerzas al robot con el control de impedancia se puede ver en la carpeta videos/practica4/EXPERIMENT01. 
+
+*NOTA: el video ha sido grabado con el móvil ya que el ordenador no era capaz de grabar la pantalla correctamente con tantos nodos en funcionamiento.
+
+*--PREGUNTAS--*
+
+*¿Cuales son los efectos de cambiar los parametros de impedancia (M,B,K)?*
+
+Cambiar estos valores tiene un impacto directo en el comportamiento del efector final:
+
+ -M (matriz de masa virtual): Afecta a la inercia del sistema. Si aumentamos M, el brazo se comportará como si tuviese más masa, reaccionando mas lentamente a perturbaciones y cambios. Si, por otra parte, disminumimos M, la respuesta será más ágil y más sensible a ruidos y fuerzas pequeñas.
+
+ - B (matriz de amortiguamiento): Controla cuánto se atenúan las oscilaciones/vibraciones. Si B es alto, el movimiento será más estable y suave, pero en consecuencia también más lento. Si B es bajo, el sistema responderá con mayor rapidez, pero puede generar unas oscilaciones mayores o inestabilidad.
+
+ - K (matriz de rigidez): Define cuanto "empuja" el robot hacia la posición indicada. Si K es alta entonces el robot mantendrá meor su trayectoria frente a perturbaciones, aunque también puede provocar movimientos bruscos si hay errores. Si K es baja, el comportamiento será más flexible.
+
+En conclusión, ajustar los parámetros de impedancia permite encontrar un equilibrio entre precisión, suavidad y robustez frente a perturbaciones externas. Estos parámetros dependerán de las necesidades de la tarea.
+
+*¿Qué efectos tiene tener una "impedancia alta" en el eje X y una "impedancia baja" en el eje Y?*
+
+Tener distintos niveles de impedancia en los ejes implica que el comportamiento del robot no será igual en todas las direcciones. 
+
+Una alta impedancia en el eje X supone que en esa dirección el manipulador resistirá más cualquier desviación o fuerza externa en esa dirección y el movimiento en X será más preciso y rígido, manteniéndose cercano a la pose deseada.
+
+Una baja impedancia en el eje Y implica que se comportará de manera mas flexible y permitirá mayor desplazamiento ante fuerzas externasa en esa dirección.
+
+Esta combinación puede suponer movimientos indeseados en el eje de baja impedancia (Y), ya que al tener poca rigidez o amortiguamiento, se podrá mover más fácilmente en esa dirección ante pequeñas fuerzas o ruidos mientras que no ocurrirá en el eje X, lo que podría provocar inestabilidad.
+
+*¿Las fuerzas aplicadas en el eje X generan movimiento en el eje Y, y viceversa?*
+
+Sí, en ambos casos se produce esta situación.
+
+*Explica por qué ocurre*
+
+Las matrices de impedancia utilizadas (masa, amortiguamiento y rigidez) son estrictamente diagonales, lo que indica que, idealmente, el comportamiento en cada eje (X e Y) debería ser independiente. Este problema puede provenir de que existen acoplamientos dinámicos en el sistema debido a la estructura del robot lo cual hace que no se aisle con total precisión un eslabón de otro, generando fuerzas en un eje donde no se le aplica fuerza.
+
+*¿Cómo se podría mitigar este efecto?*
+
+Aunque el sistema utiliza matrices de impedancia diagonales, se observa acoplamiento entre ejes en la simulación. Este comportamiento podría mitigarse usando estrategias como pueden ser: mejorar el modelado del Jacobiano y su derivada, proyectar las fuerzas sobre los ejes deseados  o introducir compensaciones dinámicas. Además, podríamos ajustar los parámetros de impedancia con el objetivo de mejorar el aislamiento entre ejes y obtener un comportamiento más preciso del efector final.
