@@ -1,4 +1,4 @@
-# PRÁCTICA 1 : Planificación de trayectorias carteasianas 
+# PRÁCTICA 1 : Planificación de trayectorias cartesianas 
 
 ## Introducción
 El objetivo de esta práctica es representar la trayectoria cartesiana de un manipulador robótico, la cual ha sido generada utilizando interpolación de la orientación mediante cuaterniones, basada en el método de Taylor. La planificación se encarga de generar las referencias de posición y orientación para el control del movimiento del manipulador, de forma que se obtiene una secuencia temporal de las diferentes posturas del efector final, desde un punto inicial hasta un punto final.
@@ -29,7 +29,7 @@ En aplicaciones como el control de movimiento de manipuladores robóticos o sist
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6e9da30e-5140-41db-91ef-d540b4b17d67" alt="Trayectoria suave del sistema" width="250">
 </p>
-<p align="center"><em>Figura 1 :Rrepresentaciuón de Cuaternión </em></p>
+<p align="center"><em>Figura 1 :Representación de Cuaternión </em></p>
 
 Dados dos vectores 𝑢 y 𝑣 se puede construir un cuaternión 𝑞 tal que, al aplicarlo como operador rotacional, se alinee 
 𝑢 con 𝑣. Este tipo de operación es fundamental en tareas de orientación o alineación de referencias espaciales.
@@ -150,14 +150,12 @@ Para ello se ha desarrollado el siguiente codigo:
     
         if (t <= -tau)
             % Primer segmento: P0 → P1 (lineal)
-            %lambda = (t + T) / (T - tau);
             lambda = (t + T) /T;
             lambda = max(0, min(1, lambda));  % Asegurar que lambda ∈ [0,1]
             [P, Q] = qpinter(P0, P1, lambda);
     
         elseif (t >= tau)
             % Tercer segmento: P1 → P2 (lineal)
-            %lambda2 = (t - tau) / (T - tau);
             lambda2 = (t) / (T);
             lambda2 = max(0, min(1, lambda2));
             [P, Q] = qpinter(P1, P2, lambda2);
@@ -220,3 +218,7 @@ Para ello se ha desarrollado el siguiente codigo:
   <img src="https://github.com/user-attachments/assets/1d4b6f52-4a0b-4eb1-b7f8-431330fd328b" alt=" Figura5: Trayectoría de Orientación" width="500">
 </p>
 <p align="center"><em>Figura5: Trayectoría de Orientación </em></p>
+
+## Conclusión
+
+Gracias a la interpolación de cuaterniones, hemos sido capaces de definir una trayectoria entre 2 puntos pasando por uno intermedio de una forma suave y lineal. Esto ha sido posible gracias al uso de las ecuaciones descritas y a las propiedades de los cuaterniones que permiten hacer unos giros y cambios de orientación de manera fácil y controlada.
