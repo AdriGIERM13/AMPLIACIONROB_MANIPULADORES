@@ -50,11 +50,11 @@ En la trayectoria trazada, se realiza un ajuste gradual en la velocidad durante 
 
 Aplicando las condiciones de borde en ambos extremos del segmento y definiendo la aceleración en el área, la posición se obtiene como:
 
-  **p(t)** = P<sub>1</sub> − ((τ − t)<sup>2</sup> / 4τT<sub>1</sub>) · ΔP<sub>1</sub> + ((τ + t)<sup>2</sup> / 4τT<sub>2</sub>) · ΔP<sub>2</sub>
+ **Ec. 1 :**   **p(t)** = P<sub>1</sub> − ((τ − t)<sup>2</sup> / 4τT<sub>1</sub>) · ΔP<sub>1</sub> + ((τ + t)<sup>2</sup> / 4τT<sub>2</sub>) · ΔP<sub>2</sub>
 
 Y la orientación como:
 
-  **q(t)** = q<sub>1</sub> · q[−((τ − t)<sup>2</sup> / 4τT<sub>1</sub>) · θ<sub>1</sub>, n̂<sub>1</sub>] · q[((τ + t)<sup>2</sup> / 4τT<sub>2</sub>) · θ<sub>2</sub>, n̂<sub>2</sub>]       
+   **Ec. 2 :**  **q(t)** = q<sub>1</sub> · q[−((τ − t)<sup>2</sup> / 4τT<sub>1</sub>) · θ<sub>1</sub>, n̂<sub>1</sub>] · q[((τ + t)<sup>2</sup> / 4τT<sub>2</sub>) · θ<sub>2</sub>, n̂<sub>2</sub>]       
 
 
 ## Apartado 1
@@ -109,13 +109,13 @@ Para el segundo apartado de la práctica se pide completar la función **generat
 
 Para trazar la trayectoria deseada, primero se obtienen las posiciones y los cuaterniones normalizados de cada uno de los puntos de interés de la trayectoria. Una vez obtenidos, se calcula el incremento de posición entre los puntos P<sub>0</sub> y P<sub>1</sub> y entre P<sub>1</sub> y P<sub>2</sub>. Para los tramos donde no es necesario que se suavice la trayectoria, se establecen los rangos de tiempo (t ≤ -τ) y (t ≥ τ), donde se calcula la interpolación lineal con la función qpinter. Para el tramo de la trayectoria [−τ < t < τ], donde se debe realizar el suavizado, se emplea la interpolación cuadrática tanto de la posición como de la orientación. 
 
-P = p1 - dP1 * (tau - t)^2 / (4 * tau * T) + dP2 * (tau + t)^2 / (4 * tau * T);
+ **Ec. 3 :**  P = p1 - dP1 * (tau - t)^2 / (4 * tau * T) + dP2 * (tau + t)^2 / (4 * tau * T);
 
 Una vez calculada la posición suavizada, se determinan dos ángulos de giro ajustados con una función cuadrática para suavizar la transición de orientación. Finalmente, se generan dos cuaterniones de rotación a partir de esos ángulos, que se combinan con el cuaternión inicial y se normalizan para obtener la orientación suavizada en el punto actual de la trayectoria.
 
-angulo = -theta1 * (tau - t)^2 / (4 * tau * T)
+ **Ec. 4 :** angulo = -theta1 * (tau - t)^2 / (4 * tau * T)
 
-q_giro = [cos(angulo / 2), u1 * sin(angulo / 2)]
+ **Ec. 5 :** q_giro = [cos(angulo / 2), u1 * sin(angulo / 2)]
 
 Para ello se ha desarrollado el siguiente codigo:
 
