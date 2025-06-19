@@ -71,14 +71,14 @@ Al lanzar todos los nodos y ejectutar el rqt_graph nos queda de la siguente form
 
 Vamos a realizar la simulación y capturar los resultados utilizando plotjuggler.
 
-En primer lugar utilizamos los parámetros por defecto que se pueden observar en la imagen 3:
+En primer lugar utilizamos los parámetros por defecto que se pueden observar en la figura 2:
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5227fa31-345c-4989-88de-7ede906589d8" alt="image" width="400"><br>
 <em> Figura 2. Parámetros iniciales</em>
 </p>
 
-El resultado de la simulación con estos parámetros se observa en la figura 4: 
+El resultado de la simulación con estos parámetros se observa en la figura 3: 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5e8c8345-71e5-4041-833c-d171125e4963" alt="image" width="400"><br>
@@ -126,3 +126,7 @@ Como es lógico, al cambiar este valor modifica directamente la intensidad de la
 El ejemplo de la simulación se encuentra en la carpeta videos con el nombre "PRACTICA2_PARAMETROS_CAMBIADOS"
 
 Para realizar la simulación hemos aumentado tanto las masas de los eslabones m1 y m2 así como hemos aumentado los coeficientes de amortiguamiento. El resultado es que el brazo comienza con una aceleración mayor debido al aumento del peso de los eslabones, los cuáles están sometidos a las fuerzas gravitatorias. Por otra parte, se observa que las oscilaciones son un poco más lentas y tarda algo menos en llegar a la posición de reposo. 
+
+### CONCLUSIÓN
+
+En esta sesión nos hemos familiarizado con el entorno de ROS2, hemos comprendido el código y la conexión entre nodos, suscriptores y publicadores, y mediante la herramienta de RViz hemos podido comprobar como actúa la gravedad en el manipulador dependiendo de los parámetros de este último.
