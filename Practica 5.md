@@ -1,4 +1,4 @@
-# Práctica 5 : Control de fuerza
+# PRÁCTICA 5 : Control de fuerza
 
 ## Introducción 
   En la última práctica de Manipuladores, se pretende desarrollar un sistema de control de fuerza con una realimentación interna de posición, 
