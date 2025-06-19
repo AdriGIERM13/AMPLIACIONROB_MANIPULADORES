@@ -1,5 +1,6 @@
 # Práctica 1 : Planificación de trayectorias carteasianas 
 
+## Introducción
 El objetivo de esta práctica es representar la trayectoria cartesiana de un manipulador robótico, la cual ha sido generada utilizando interpolación de la orientación mediante cuaterniones, basada en el método de Taylor. La planificación se encarga de generar las referencias de posición y orientación para el control del movimiento del manipulador, de forma que se obtiene una secuencia temporal de las diferentes posturas del efector final, desde un punto inicial hasta un punto final.
 
 Además, se garantiza que durante el movimiento desde la postura inicial hasta la final no se saturen los actuadores, asegurando así un comportamiento dinámicamente factible del sistema.
