@@ -135,3 +135,7 @@ En la figura 7 también se muestra otro ejemplo de la posición de los brazos co
 *¿Cuál es el comportamiento del robot bajo el control de dinámica inversa cuando aplicamos fuerzas virtuales?*
 
 Tal y como se puede observar en el video "Fuerzas_compensador_dinamico" en la carpeta videos/practica3, el brazo robot aplica esa fuerza sin ningún tipo de control, el manipulador comienza a oscilar presentando una gran inestabilidad en sus dos eslabones, llegando a un punto donde comienza a girar sin control. Esto se debe a que al aplicar la aceleración deseada  el controlador supone que proporciono directamente una trayectoria suficientemente suave y que el modelo dinámico es perfecto, sin fuerzas externas inesperadas. Falta el acoplamiento entre la fuerza virtual y la aceleración deseada. Si aplicamos una fuerza Fext ​en el espacio cartesiano sin un modelo de impedancia, esa fuerza no se traduce en una aceleración deseada incoherente. Es decir, el sistema no sabe cómo responder físicamente a esa fuerza.
+
+### CONCLUSIÓN
+
+En esta tercera sesión, hemos partido del brazo robot y le hemos añadido un compensador de la gravedad implementado a través del modo gravity_compensation.cpp. También hemos visualizado el comportamiento del manipulador frente a la aplicación de fuerzas virtuales tanto en el eje X como en el eje Y.
