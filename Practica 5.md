@@ -2,7 +2,7 @@
 
 ## Introducción 
   En la última práctica de Manipuladores, se pretende desarrollar un sistema de control de fuerza con una realimentación interna de posición, 
-con lo que se puede llegar a obtener la fuerza aplicada en el efector final deseada.Dicho comportamiento dinámico del robot se linealiza con 
+con lo que se puede llegar a obtener la fuerza aplicada en el efector final deseada. Dicho comportamiento dinámico del robot se linealiza con 
 la ley de control utilizada en las prácticas anteriores.
   
  **Ec. 1 :**
@@ -11,8 +11,8 @@ la ley de control utilizada en las prácticas anteriores.
 \dot{\mathbf{q}}) \cdot \dot{\mathbf{q}} + \mathbf{F}b\cdot \dot{\mathbf{q}} + \mathbf{g}}{\mathbf{n}(\mathbf{q}, 
 \dot{\mathbf{q}})} + \mathbf{J}^T(\mathbf{q})\mathbf{f}{e} $$
 
-Para esta práctica se consideran posiciones cartesianas y se asume que el entorno presenta un comportamiento elástico la cual la podemos modelar 
-mediante la siguiente expresión. Donde $x_e$ representa la posición cartesiana del manipulador y $x_r$ representa el punto de equilibrio. 
+Para esta práctica se consideran posiciones cartesianas y se asume que el entorno presenta un comportamiento elástico el cual  podemos modelar 
+mediante la siguiente expresión (2). Donde $x_e$ representa la posición cartesiana del manipulador y $x_r$ representa el punto de equilibrio. 
 
  **Ec. 2 :**
 
@@ -20,7 +20,7 @@ $$
 F_{mi} = \mathbf{K}_P \cdot (x_F - x_e)
 $$
 
-La dinámica del sistema del manipulador se describe mediante la siguiente expresión, donde $x_e$ representa la posición en régimen estacionario, 
+La dinámica del sistema del manipulador se describe mediante la siguiente expresión (3), donde $x_e$ representa la posición en régimen estacionario, 
 la cual debe alcanzar la posición de consigna $x_d$ .Esta posición de consigna se define a través de una ley de control orientada al seguimiento de fuerza.
 Para implementar dicho control, se propone utilizar un controlador proporcional, a partir del cual se puede obtener la siguiente deducción.
 
@@ -90,6 +90,7 @@ El sistema parte de una posición inicial de $x_{e_inicial}=[1.3,0.7]$ y donde l
 * Ganancia derivativa $K_d$  :   $K_d=[5000, 0; 0,5000] $
 
 En la simulación obtenemos la siguinte comportamiento:
+
 *Posición*
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f764cbb6-ba26-4cc6-8e5d-e5fbf0254c4e" alt="image" width="800"><br>
@@ -107,24 +108,24 @@ Se puede observar que apenas existe error en la consecución de la posición en 
 Como se puede observar en las fuerzas obtenidas a partir de la simulación, el sistema presenta una ganancia de aproximadamente -1.37 en estado estacionario, lo cual se aleja de la consigna establecida de [10 0] N. Esto indica la necesidad de implementar un controlador PI para eliminar el error en régimen permanente.
 Otra propiedad que se puede analizar a través de la simulación es que el sistema presenta un tiempo de establecimiento de 2.5 segundos.
 
-*Concluiones*
+*Conclusiones*
 
 La aplicación de un controlador proporcional (P) en el control de fuerza del manipulador no permite lograr un control adecuado del sistema. Esto se debe a que, al no incorporar una acción integral, se genera un error en estado estacionario.
 Por otro lado, dado que el controlador solo aplica una ganancia en el eje X, la consigna en el eje Y se establece como nula, lo que provoca que el manipulador no ejerza ninguna fuerza en esa dirección. 
 
 ## Simulación con controlador PI
-del sistema que implementa un controlador PI, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
+Para el sistema que implementa un controlador PI, se ha desarrollado el siguiente sistema de bloques en Matlab-Simulink.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/54fef522-22ea-4351-9af6-0b73b65cd95f" alt="image" width="600"><br>
+  <img src="https://github.com/user-attachments/assets/54fef522-22ea-4351-9af6-0b73b65cd95f" alt="image" width="700"><br>
   <em>Figura 6. Diagrama de bloques en Simulink con controlador PI .</em>
 </p>
 
-Donde el bloque de controlador PI está formado por el siguinte cojunto de bloques: 
+Donde el bloque de controlador PI está formado por el siguiente conjunto de bloques: 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3be5a4db-83cd-4927-a83b-ba0e5047f0eb" alt="image" width="200"><br>
-  <em>Figura 7. Diagrama de bloques del bloque d control PI .</em>
+  <em>Figura 7. Diagrama de bloques del bloque de control PI .</em>
 </p>
 
 Donde los bloques están formados por:
@@ -150,10 +151,12 @@ Sin embargo, al igual que en el caso del controlador proporcional, no se aplica 
 
 Como se puede observar, se ha logrado reducir el error en estado estacionario, alcanzando una ganancia unitaria. Sin embargo, el sistema presenta un tiempo de establecimiento de 5.4 segundos, lo que indica que el control mediante un controlador PI es más lento en comparación con el controlador proporcional.
 
-*Conclusión*
+*Conclusión:*
+
 Implementando el controlador PI se ha logrado mejorar el control de fuerza del manipulador, obteniendo un error nulo ante una entrada escalón, no obstante se empeora la velocidad de respuesta, generando un sistema más lento. Si nos fijamos existe una diferencia de tiempo entre el establecimiento de la posición y de la fuerza. 
 
-*Mejoras*
+*Mejoras:*
+
 Para poder mejorar la respuesta del sistema será necesario ajustar las ganancias del controlador PI. Para ello vamos a reducir el valor de las ganancias del controlador PI. Para ver cómo mejora la respuesta se hará un estudio con las nuevas ganancias.
 
 Nuevas ganancias del controlador:
