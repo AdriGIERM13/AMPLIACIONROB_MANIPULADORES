@@ -72,7 +72,7 @@ Para realizar la compensación debemos crear el nodo dynamics_cancellation.cpp. 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2c090886-408f-4908-b94c-fe1f035a9b9d" alt="image" width="600"><br>
-  <em>Figura 4. Código linealización competa.</em>
+  <em>Figura 4. Código compensación competa. Cálculo del torque.</em>
 </p>
 
 <p align="center">
