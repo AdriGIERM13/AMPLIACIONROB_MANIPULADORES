@@ -11,8 +11,8 @@ la ley de control utilizada en las prácticas anteriores.
 \dot{\mathbf{q}}) \cdot \dot{\mathbf{q}} + \mathbf{F}b\cdot \dot{\mathbf{q}} + \mathbf{g}}{\mathbf{n}(\mathbf{q}, 
 \dot{\mathbf{q}})} + \mathbf{J}^T(\mathbf{q})\mathbf{f}{e} $$
 
-Para esta práctica se consideran posicones cartesianas y se asume que el entonto presenta un comportamiento elástico la cual la podemos modelar 
-mediante la siguinte expresión. Donde $x_e$ representa la posición cartesiana del amnipualdor y $x_r$ representa el punto de equilibrio. 
+Para esta práctica se consideran posiciones cartesianas y se asume que el entorno presenta un comportamiento elástico la cual la podemos modelar 
+mediante la siguiente expresión. Donde $x_e$ representa la posición cartesiana del manipulador y $x_r$ representa el punto de equilibrio. 
 
  **Ec. 2 :**
 
@@ -30,7 +30,7 @@ $$
 \mathbf{M}_d \ddot{x}_e + \mathbf{K}_D \dot{x}_e + \mathbf{K}_P x_e = \mathbf{K}_P x_F
 $$
 
-Donde el controlador proporcional vine definido por :
+Donde el controlador proporcional viene definido por :
 
  **Ec. 4 :**
  
@@ -55,7 +55,7 @@ $$
 \mathbf{C}_F = \mathbf{K}_F + \mathbf{K}_I \int_0^t (\cdot)\ d\zeta
 $$
 
-El diagrama equivalente dek sistema por tanto quedaría: 
+El diagrama equivalente del sistema por tanto quedaría: 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c3088f1c-52bc-4823-ba9c-30e5eab8b20e" alt="image" width="600"><br>
   <em>Figura 1. Diagrama de bloques equivalente del sistema .</em>
@@ -68,7 +68,7 @@ La segunda parte corresponde al conjunto de bloques responsables del control de 
 Por último, la tercera parte se encarga del cálculo de la fuerza de contacto, con el fin de implementar el control externo de fuerzas.
 
 ## Simulación con controlador P
-Para la simualción del sistema que implementa un controlador P, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
+Para la simulación del sistema que implementa un controlador P, se ha desarrollado el sisguinte sistema de bloques en Matlab-Simulink.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fc9703bd-5a6b-4d12-aad4-3c0ef06d1d49" alt="image" width="600"><br>
@@ -81,7 +81,7 @@ Donde el bloque de control de posicion viene formado por:
   <em>Figura 3. Bloque de control de movimiento .</em>
 </p>
 
-El sistema parte de una posición incial de $x_{e_inicial}=[1.3,0.7]$ y donde los parametros del sistema son los siguintes:
+El sistema parte de una posición inicial de $x_{e_inicial}=[1.3,0.7]$ y donde los parámetros del sistema son los siguintes:
 
 * Constante K del sensor:        $K=[1000, 0; 0, 1000] $
 * Controlador $C_F$  :           $C_f=[0.05, 0; 0,0] $
@@ -89,7 +89,7 @@ El sistema parte de una posición incial de $x_{e_inicial}=[1.3,0.7]$ y donde lo
 * Ganancia derivativa $K_d$ :    $K_d=[5000, 0; 0,5000] $
 * Ganancia derivativa $K_d$  :   $K_d=[5000, 0; 0,5000] $
 
-En la simualción obtenemos la siguinte comportamiento:
+En la simulación obtenemos la siguinte comportamiento:
 *Posición*
 <p align="center">
   <img src="https://github.com/user-attachments/assets/f764cbb6-ba26-4cc6-8e5d-e5fbf0254c4e" alt="image" width="800"><br>
@@ -127,12 +127,12 @@ Donde el bloque de controlador PI está formado por el siguinte cojunto de bloqu
   <em>Figura 7. Diagrama de bloques del bloque d control PI .</em>
 </p>
 
-Donde los bloques estan formado por:
+Donde los bloques están formados por:
 
 * Control proporcional $K_p$:  $K_p=[0.03, 0; 0, 0] $
 * Control integral $K_i$       $K_i=[0.03, 0; 0, 0] $
 
-En la simualción obtenemos la siguinte comportamiento:
+En la simulación obtenemos la siguinte comportamiento:
 *Posición*
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fc62962d-6e6b-4e16-a730-1aaf8c38378f" alt="image" width="800"><br>
@@ -154,14 +154,14 @@ Como se puede observar, se ha logrado reducir el error en estado estacionario, a
 Implementando el controlador PI se ha logrado mejorar el control de fuerza del manipulador, obteniendo un error nulo ante una entrada escalón, no obstante se empeora la velocidad de respuesta, generando un sistema más lento. Si nos fijamos existe una diferencia de tiempo entre el establecimiento de la posición y de la fuerza. 
 
 *Mejoras*
-Para poder mejorar la respuesta del sistema será necesario ajustar las ganancias del controlador PI. Para ello vamos a reducir el valor de las ganancias del controlador PI. Para ver como mejora la respuesta se hará un estudio con las nuevas ganancias.
+Para poder mejorar la respuesta del sistema será necesario ajustar las ganancias del controlador PI. Para ello vamos a reducir el valor de las ganancias del controlador PI. Para ver cómo mejora la respuesta se hará un estudio con las nuevas ganancias.
 
 Nuevas ganancias del controlador:
 
 * Control proporcional $K_p$:  $K_p=[0.015, 0; 0, 0] $
 * Control integral $K_i$       $K_i=[0.02, 0; 0, 0] $
 
-Donde la simulación con las nuevas ganancias del controlor otorgan el siguiente comportamiento al sistema:
+Donde la simulación con las nuevas ganancias del controlador otorga el siguiente comportamiento al sistema:
 
 *Posición*
 <p align="center">
